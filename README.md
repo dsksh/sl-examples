@@ -17,6 +17,14 @@ the *i*-th level from the inside increments appropriately every (`thres`^`numNes
 When the top-level counter value reaches `thres`-1, it will force a hold on the innermost counter to prevent from a reset;
 hence, the top-level reset is DL.
 
+Example (`numNests`: 3, `thres`: 5):
+
+<image src="./images/nc3_1.png" width="800" />
+
+<image src="./images/nc3_2.png" width="800" />
+
+<image src="./images/nc3_3.png" width="800" />
+
 ### Sequential integrators
 
 Script: `makeSequentialIntegratorsModel.m`
@@ -28,6 +36,10 @@ We apply a gain $0.1$ to the output of each integrator so that the value becomes
 The increase rate should become smaller for subsequent output signals.
 We put a `RelationalOperator` to check that the final output is less than 1;
 its violation should be DL.
+
+Example (`numInts`: 2):
+
+<image src="./images/si2.png" width="650" />
 
 <br />
 
