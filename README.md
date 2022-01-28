@@ -4,6 +4,22 @@ This repository provides MATLAB scripts for generating Simulink models.
 
 ## Simulink model schemes
 
+### Sequential integrators
+
+Script: `makeSequentialIntegratorsModel.m`
+
+Parameter: `numInts`
+
+Models connect `numInts` integrators (a simple feedback loop system) in series.
+We apply a gain $0.1$ to the output of each integrator so that the value becomes less than 1.
+The increase rate should become smaller for subsequent output signals.
+We put a `RelationalOperator` to check that the final output is less than 1;
+its violation should be DL.
+
+Example (`numInts`: 2):
+
+<image src="./images/si2.png" width="650" />
+
 ### Nested counter 
 
 Script: `makeNestedCounterModel.m`
@@ -24,22 +40,6 @@ Example (`numNests`: 3, `thres`: 5):
 <image src="./images/nc3_2.png" width="800" />
 
 <image src="./images/nc3_3.png" width="800" />
-
-### Sequential integrators
-
-Script: `makeSequentialIntegratorsModel.m`
-
-Parameter: `numInts`
-
-Models connect `numInts` integrators (a simple feedback loop system) in series.
-We apply a gain $0.1$ to the output of each integrator so that the value becomes less than 1.
-The increase rate should become smaller for subsequent output signals.
-We put a `RelationalOperator` to check that the final output is less than 1;
-its violation should be DL.
-
-Example (`numInts`: 2):
-
-<image src="./images/si2.png" width="650" />
 
 <br />
 
